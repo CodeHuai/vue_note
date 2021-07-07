@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../../logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" name="" id="" v-model='search'>
+        <ul>
+            <li v-for='(item, index) in persons'>
+                {{item.id}} -- {{item.name}} -- {{item.age}}
+            </li>
+        </ul>
+        <button @click='measure'>升序排序</button>
+        <button @click='measure'>降序排序</button>
+        <button @click='measure'>原序排序</button>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                persons: [{
+                        id: 1,
+                        name: 'Hong',
+                        age: 12
+                    },
+                    {
+                        id: 2,
+                        name: 'Hong',
+                        age: 12
+                    }, {
+                        id: 3,
+                        name: 'Hong',
+                        age: 12
+                    }, {
+                        id: 4,
+                        name: 'Hong',
+                        age: 12
+                    }
+                ],
+                info: '',
+                computed: {
+                    result() {
+
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

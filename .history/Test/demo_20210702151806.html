@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 注意 如果用v-for in 遍历数组 则会出现问题 msg -->
+    <ul id="app">
+        <li v-for='(msg, index) in msgs'>{{msg}}</li>
+    </ul>
+    <script src="../js/vue.js"></script>
+    <script>
+        const vue = new Vue({
+            el: '#app',
+            data: {
+                msgs: [12, 344, 4, 5, 6, 7]
+            }
+        });
+    </script>
+</body>
+
+</html>

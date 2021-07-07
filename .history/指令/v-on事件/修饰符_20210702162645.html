@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app" @click='showData'>
+        <form action="#" id="form">
+            <input type="text" placeholder="down down down" @keyup.enter="showCode" @focus.stop='data'>
+            <button @click.prevent.stop='subBtn($event)'>提交</button>
+        </form>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        const vue = new Vue({
+            el: '#app',
+            data: {
+                msg: 123
+            },
+            methods: {
+                subBtn(event) {
+                    console.log('阻止默认事件');
+                },
+                showData() {
+                    console.log('阻止事件冒泡');
+                },
+                showCode() {
+                    console.log('鼠标按下事件');
+                },
+                data() {
+                    console.log('获取焦点');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

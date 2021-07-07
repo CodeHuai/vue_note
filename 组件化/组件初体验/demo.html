@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../../logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <cpn></cpn>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        // 创建组件
+        const cpn = Vue.extend({
+            template: `<h1>测试</h1>`
+        })
+
+        // 注册组件
+        Vue.component('cpn', cpn);
+
+        // 使用组件  挂载完成后，同时浏览器解析到cpn组件时，会通过之前在全局注册的cpn组件知道这里有一个组件，所以这里会进行渲染
+        const app = new Vue({
+            el: '#app'
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../../logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" name="" v-model='info' id="">
+        <ul>
+            <li v-for='(item, index) in result' :key="item.id">
+                {{index}} -- {{item.id}} -- {{item.name}} -- {{item.age}}
+            </li>
+        </ul>
+        <button @click='result(1)'></button>
+        <button @click='result(2)'></button>
+        <button @click='result(0)'></button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: ' #app',
+            data: {
+                info: '',
+                searchType: 0, // 0 -- 原序排序； 1 -- 升序排序； 2 -- 降序排序
+                persons: [{
+                        id: 1,
+                        name: 'aa',
+                        age: 10
+                    }, {
+                        id: 2,
+                        name: 'ab',
+                        age: 11
+                    },
+                    {
+                        id: 3,
+                        name: 'abc',
+                        age: 12
+                    }
+                ]
+            },
+            computed: {
+                result(flag) {
+                    const {
+                        info,
+                        persons
+                    } = this;
+
+                    const arr = persons.filter(item => {
+                        return item.name.includes(info);
+                    });
+
+                    // 原序
+                    if (flag == 0) {
+                        return arr;
+                    } else if (flag == 1) {
+                        // 升序
+
+                    } else if (flag == 2) {
+                        // 降序
+
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

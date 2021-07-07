@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 使用组件 -->
+    <div id="app">
+        <my-com></my-com>
+    </div>
+
+    <script src="../../js/vue.js"></script>
+    <script>
+        // 创建组件构造器
+        // 注意这里没有 S
+        const myCom = Vue.extend({
+            template: `
+                <div>测试</div>
+            `
+        });
+
+        // 注册组件
+        Vue.component('my-com', myCom);
+
+        // 挂载
+        const app = new Vue({
+            el: '#app',
+            data: {
+                msg: '123'
+            }
+        });
+    </script>
+</body>
+
+</html>

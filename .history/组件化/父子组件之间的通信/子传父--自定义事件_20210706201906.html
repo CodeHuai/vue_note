@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../../logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <!-- 父组件 -->
+    <div id="app">
+        <cpn></cpn>
+    </div>
+
+    <!-- 子组件 -->
+    <template id="cpn">
+        <div>
+            <button v-for='(item, index) in categoties'>{{item.info}}</button>
+        </div>
+    </template>
+    <script src="../../js/vue.js"></script>
+    <script>
+        // 子组件
+        const cpn = {
+            template: '#app',
+            data() {
+                return {
+                    categoties: [{
+                        info: '测试'
+                    }, {
+                        info: '针灸者'
+                    }, {
+                        info: '按键'
+                    }, {
+                        info: 'flower dance'
+                    }]
+                }
+            },
+            methods: {
+
+            },
+        }
+
+        // 父组件
+        const app = new Vue({
+            el: '#app',
+            methods: {
+
+            },
+            components: {
+                cpn
+            }
+        });
+    </script>
+</body>
+
+</html>

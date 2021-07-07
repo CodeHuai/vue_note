@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../../logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <con></con>
+    </div>
+
+    <template id="cpn">
+        <div>
+            <button v-for='(item, index) in info' :key="item.id">{{item.title}}</button>
+        </div>
+    </template>
+    <script src="../../js/vue.js"></script>
+    <script>
+        const cpn = {
+            template: '#cpn',
+            data() {
+                return {
+                    info: [{
+                            id: 1,
+                            title: 'flower dance'
+                        },
+                        {
+                            id: 2,
+                            title: 'tell me to your heart'
+                        },
+                        {
+                            id: 3,
+                            title: 'coming home'
+                        },
+                        {
+                            id: 4,
+                            title: 'rain'
+                        }
+                    ]
+                }
+            },
+            methods: {
+
+            }
+        }
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+
+            },
+            components: {
+                cpn
+            }
+        });
+    </script>
+</body>
+
+</html>

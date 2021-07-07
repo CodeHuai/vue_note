@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../../logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <!-- 父组件 -->
+    <div id="app">
+        <!-- 这里的 itemclick 是用于监听子组件的自定义事件 -->
+        <cpn @itemclick='cpnClcik'></cpn>
+    </div>
+
+    <!-- 子组件 -->
+    <template id="cpn">
+        <div>
+            <button v-for='(item, index) in categoties' :key="item.id" @btnClick='myClick(item)'>{{item.info}}</button>
+        </div>
+    </template>
+    <script src="../../js/vue.js"></script>
+    <script>
+        // 子组件
+        const cpn = {
+            template: '#cpn',
+            data() {
+                return {
+                    categoties: [{
+                        id: 1,
+                        info: '测试'
+                    }, {
+                        id: 2,
+                        info: '针灸者'
+                    }, {
+                        id: 3,
+                        info: '按键'
+                    }, {
+                        id: 4,
+                        info: 'flower dance'
+                    }]
+                }
+            },
+            methods: {
+                myClick(item) {
+                    // 注意这里不需要return
+                    // return
+                    // 这里是自定义事件
+                    this.$emit('itemclick', item.info);
+                }
+            },
+        }
+
+        // 父组件
+        const app = new Vue({
+            el: '#app',
+            methods: {
+                cpnClcik() {
+                    console.log(object)
+                }
+            },
+            components: {
+                cpn
+            }
+        });
+    </script>
+</body>
+
+</html>

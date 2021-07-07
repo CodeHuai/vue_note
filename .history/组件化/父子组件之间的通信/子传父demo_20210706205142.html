@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../../logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <!-- 父组件 -->
+    <div id="app">
+        <cpn @itemclick='showinfo'></cpn>
+    </div>
+
+    <!-- 子组件 -->
+    <template id="cpn">
+        <div>
+            <button v-for='item in info' :key="item.id" @click='btnclick(item)'>{{item.title}}</button>
+        </div>
+    </template>
+    <script src="../../js/vue.js"></script>
+    <script>
+        const cpn = {
+            template: '#cpn',
+            data() {
+                return {
+                    info: [{
+                            id: 1,
+                            title: 'flower dance'
+                        },
+                        {
+                            id: 2,
+                            title: 'tell me to your heart'
+                        },
+                        {
+                            id: 3,
+                            title: 'coming home'
+                        },
+                        {
+                            id: 4,
+                            title: 'rain'
+                        }
+                    ]
+                }
+            },
+            methods: {
+                btnclick(item) {
+                    this.$emit('itemclick', item.title);
+                }
+            }
+        }
+
+        const app = new Vue({
+            el: '#app',
+            methods: {
+                showinfo(info) {
+                    console.log(info);
+                }
+            },
+            components: {
+                cpn
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../../logo.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <cpn :cMsg='msg' :cUsername='username'></cpn>
+    </div>
+
+    <template id="children">
+        <div>
+            <span>{{cMsg}}</span>
+        </div>
+    </template>
+
+    <script src="../../js/vue.js"></script>
+    <script>
+        const cpn = {
+            template: '#children',
+            props: {
+                cMsg: {
+                    type: String,
+                    // default: 'Hong',
+                    require: true
+                },
+                cUsername: {
+                    type: String,
+                    default: '123456'
+                }
+            },
+            data() {
+                return {
+
+                }
+            },
+            methods: {
+
+            }
+        }
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                msg: '123',
+                username: 'Mr_Huai'
+            },
+            components: {
+                cpn
+            }
+        });
+    </script>
+</body>
+
+</html>

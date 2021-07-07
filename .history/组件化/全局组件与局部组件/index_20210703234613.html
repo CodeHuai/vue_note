@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <myCom></myCom>
+    </div>
+    <!-- <com></com> -->
+    <script src="../../js/vue.js"></script>
+    <script>
+        const com = Vue.extend({
+            template: `
+                <h1>全局组件以及局部组件</h1>
+            `
+        });
+
+        // 这种方式属于全局组件
+        // Vue.component('small', com);
+
+        // 创建局部组件
+        const app = new Vue({
+            el: '#app',
+            components: {
+                "myCom": com
+            }
+        });
+    </script>
+</body>
+
+</html>

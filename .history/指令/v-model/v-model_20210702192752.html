@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- text 和 textarea 元素使用 value property 和 input 事件； -->
+        <input type="text" v-model='msg' placeholder="demo">{{msg}}
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hh'
+            }
+        });
+    </script>
+</body>
+
+</html>
