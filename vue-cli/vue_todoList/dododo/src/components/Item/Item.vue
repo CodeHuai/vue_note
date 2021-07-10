@@ -50,7 +50,7 @@
           get(){
             return this.todo.isChecked
           },
-          set(value){
+          set(){
             // 这里是不能对 props 中属性进行修改 原则
             // this.todo.isChecked = value;
             this.toggleTodo(this.todo);
