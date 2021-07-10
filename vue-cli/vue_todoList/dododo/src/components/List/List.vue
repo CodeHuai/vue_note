@@ -1,16 +1,20 @@
 <template>
     <ul class="todo-main">
-        <Item></Item>
+        <Item v-for="todo in todos" :toggleTodo='toggleTodo' :key="todo.id" :todo="todo"></Item>
     </ul>
 </template>
 
 <script>
-import Item from '../Item/Item.vue'
+import Item from '../Item/Item.vue';
 
 export default {
     name: 'List',
     components: {
         Item
+    },
+    props: {
+      todos: Array,
+      toggleTodo: Function
     }
 }
 </script>

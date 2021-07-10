@@ -1,12 +1,43 @@
 <template>
 <div class="todo-header">
-    <input type="text" placeholder="请输入你的任务名称，按回车键确认"/>
+    <input type="text" v-model="title" @keyup.enter="handleEnter" placeholder="请输入你的任务名称，按回车键确认"/>
 </div>
 </template>
 
 <script>
 export default {
-    name: 'Header'
+    name: 'Header',
+    // 用以记录 输入数据
+    data(){
+      return {
+        title: ''
+      }
+    },
+    methods: {
+      handleEnter(){
+        // 注意这里的 trim 是方法
+        let title = this.title.trim();
+        // 如果为空
+        if(!title){
+          this.title = '';
+          return;
+        }
+        // 如果不为空
+        // 创建 新的todo对象
+        const todo = {
+          id: this.setIdWithUUID(),
+          title,
+          isChecked: false
+        }
+        // this.addTodo(todo);
+        this.$emit('addTodo', todo);
+        //  清空输入
+        this.title = '';
+      }
+    },
+    props: {
+      setIdWithUUID: Function
+    }
 }
 </script>
 
